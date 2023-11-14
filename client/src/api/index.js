@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://stack-overflow-api1-m3cv.onrender.com",
 });
 
 API.interceptors.request.use((req) => {
