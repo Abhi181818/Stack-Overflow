@@ -8,7 +8,7 @@ const ThemeProvider = ({ children }) => {
     useEffect(() => {
         const checkTime = () => {
             const currentHour = new Date().getHours();
-            const isNight = currentHour >= 18 || currentHour < 6;
+            const isNight = currentHour >= 16 || currentHour < 6;
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
                     const { latitude, longitude } = position.coords;
