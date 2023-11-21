@@ -41,7 +41,7 @@ const ThemeProvider = ({ children }) => {
 
         const intervalId = setInterval(() => {
             checkTime();
-        }, 60000);
+        }, 60);
 
         return () => clearInterval(intervalId);
     }, []);
