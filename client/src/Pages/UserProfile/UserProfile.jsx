@@ -60,6 +60,7 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
           Badges Earned : 
           {/* <br /> */}
           {currentProfile.badges}
+                    (1 badge will be earned when the user answers 1 question)
           <>
             {Switch ? (
               <EditProfileForm
