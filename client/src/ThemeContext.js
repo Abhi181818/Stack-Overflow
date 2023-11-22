@@ -8,32 +8,8 @@ const ThemeProvider = ({ children }) => {
     useEffect(() => {
         const checkTime = () => {
             const currentHour = new Date().getHours();
-            const isNight = currentHour >= 20 || currentHour < 6;
-            //  if (navigator.geolocation) {
-            //    navigator.geolocation.getCurrentPosition((position) => {
-            //      const { latitude, longitude } = position.coords;
-            //    const apiKey = 'afe8699d26e89acfd2702c91649dc12b';
-            //  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-
-            //fetch(apiUrl)
-            //  .then(response => response.json())
-            //.then(data => {
-            //  const weatherCondition = data.weather[0].main;
-
-            //const isBadWeather = ['Thunderstorm', 'Rain', 'Snow'].includes(weatherCondition);
-
+            const isNight = currentHour >= 18 || currentHour < 6;
             setIsNightTheme(isNight);
-
-            //})
-            // .catch(error => {
-            // alert('Error getting weather data:', error);
-            // setIsNightTheme(isNight);
-            // });
-            // });
-            // } else {
-            // setIsNightTheme(isNight);
-            // alert('Geolocation not supported by browser.');
-            // }
         };
 
         checkTime();
