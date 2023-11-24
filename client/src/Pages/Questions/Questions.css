@@ -132,3 +132,11 @@
     width: calc(100% - 24px);
   }
 }
+
+
+.video-frame {
+  width: 300px;
+  height: 50%;
+}
+
+
