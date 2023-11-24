@@ -121,11 +121,10 @@ const QuestionsDetails = () => {
                       )
                       }
 
-                      Video:<br/>
+                      Video:<br />
                       {
-                        // console.log(question.videoLink)
                         question.videoLink && (
-                          <iframe style={{borderRadius:"15px",marginTop:"5px"}}width="560" height="315" src={question.videoLink} title="video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                          <iframe style={{ borderRadius: "15px", marginTop: "5px" }} className="video-frame" src={question.videoLink} title="video player" allow="accelerometer; clipboard-write;encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         )
 
                       }
