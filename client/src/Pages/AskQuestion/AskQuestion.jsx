@@ -6,6 +6,7 @@ import { } from 'cloudinary-react'
 import "./AskQuestion.css";
 import { askQuestion } from "../../actions/question";
 import CloudinaryContextProvider from '../../CloudinaryContextProvider.js'
+import RichTextEditor from "./RichTextEditor.jsx"
 
 const AskQuestion = () => {
   const [questionTitle, setQuestionTitle] = useState("");
@@ -16,9 +17,12 @@ const AskQuestion = () => {
   const [codeSnippet, setCodeSnippet] = useState("");
   const [videoLink, setVideoLink] = useState("");
 
+
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const navigate = useNavigate();
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,17 +50,14 @@ const AskQuestion = () => {
     if (file) {
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('upload_preset', 'ml_default'); // Replace with your Cloudinary upload preset
-
+      formData.append('upload_preset', 'ml_default');
       const response = await fetch('https://api.cloudinary.com/v1_1/dca7yxbfr/video/upload', {
         method: 'POST',
         body: formData,
       });
 
       const data = await response.json();
-
-      setVideoLink(data.secure_url+"");
-      // console.log(data.secure_url);
+      setVideoLink(data.secure_url + "");
     }
   };
 
@@ -71,6 +72,9 @@ const AskQuestion = () => {
       <div className={`ask-question ${themeClass}`}>
         <div className={`ask-ques-container ${themeClass}`}>
           <h1>Ask a public Question</h1>
+
+          {<RichTextEditor />}
+
           <form onSubmit={handleSubmit}>
             <div className={`ask-form-container ${themeClass}`}>
               <label htmlFor="ask-ques-title">
@@ -96,7 +100,6 @@ const AskQuestion = () => {
                   question
                 </p>
                 <textarea
-                  name=""
                   id="ask-ques-body"
                   onChange={(e) => {
                     setQuestionBody(e.target.value);
@@ -120,7 +123,6 @@ const AskQuestion = () => {
                   onKeyPress={handleEnter}
                   style={{ borderRadius: "15px" }}
                 ></textarea>
-                {/* <label htmlFor="ask-ques-video"> */}
                 <h4>Video File</h4>
                 <p>Upload a video file to describe your problem more clearly</p>
                 <input
@@ -131,7 +133,6 @@ const AskQuestion = () => {
                   style={{ borderRadius: "15px" }}
                 />
               </label>
-
               <label htmlFor="ask-ques-tags">
                 <h4>Tags</h4>
                 <p>Add up to 5 tags to describe what your question is about</p>
@@ -152,7 +153,6 @@ const AskQuestion = () => {
               className="review-btn"
             />
           </form>
-          {console.log(videoLink)}
         </div>
       </div>
     </CloudinaryContextProvider>
