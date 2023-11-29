@@ -70,7 +70,7 @@ const RichTextEditor = () => {
 
         </div>
       </div>
-      <div id="content" ref={contentRef} style={{ padding: "5px", marginTop: "20px", marginBottom: "12px", height: "auto", minHeight: "120px", border: "1px solid black", borderRadius: "15px", overflowWrap: "break-word" }} placeholder='Your Text Here' contentEditable="true" spellCheck="false">
+      <div id="content" ref={contentRef} style={{ padding: "5px", marginTop: "20px", marginBottom: "12px", height: "auto", minHeight: "120px", border: "1px solid blue", borderRadius: "15px", overflowWrap: "break-word" }} placeholder='Your Text Here' contentEditable="true" spellCheck="false">
       </div>
     </div>
   );
