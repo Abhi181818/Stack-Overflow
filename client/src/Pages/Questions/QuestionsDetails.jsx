@@ -107,6 +107,8 @@ const QuestionsDetails = () => {
                     </div>
                     <div style={{ width: "100%" }}>
                       <p className="question-body">{question.questionBody}</p>
+                      Editor Content:<br />
+                      <div dangerouslySetInnerHTML={{ __html: question.editorContent }} />
                       <div className="question-details-tags">
                         {question.questionTags.map((tag) => (
                           <p key={tag}>{tag}</p>
