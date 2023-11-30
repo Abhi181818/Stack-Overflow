@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "./RichTextEditor.css"
-const RichTextEditor = () => {
+const RichTextEditor = ({ onContentChange }) => {
+  const [editorContent, setEditorContent] = useState("")
   const contentRef = useRef(null);
   const formatDoc = (cmd, value = null) => {
     contentRef.current.focus()
@@ -9,8 +10,9 @@ const RichTextEditor = () => {
     } else {
       document.execCommand(cmd);
     }
+    setEditorContent(contentRef.current.innerHTML);
+    if (onContentChange) onContentChange(contentRef.current.innerHTML)
   };
-
 
   return (
     <div className="container">
@@ -70,7 +72,7 @@ const RichTextEditor = () => {
 
         </div>
       </div>
-      <div id="content" ref={contentRef} style={{ padding: "5px", marginTop: "20px", marginBottom: "12px", height: "auto", minHeight: "120px", border: "1px solid blue", borderRadius: "15px", overflowWrap: "break-word" }} placeholder='Your Text Here' contentEditable="true" spellCheck="false">
+      <div id="content" ref={contentRef} style={{ padding: "5px", marginTop: "20px", marginBottom: "12px", height: "auto", minHeight: "120px", border: "1px solid blue", borderRadius: "15px", overflowWrap: "break-word" }} contentEditable="true" onBlur={() => onContentChange(contentRef.current.innerHTML)} spellCheck="false">
       </div>
     </div>
   );
