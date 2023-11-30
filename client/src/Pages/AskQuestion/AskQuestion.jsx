@@ -16,7 +16,7 @@ const AskQuestion = () => {
   const themeClass = isNightTheme ? 'night-theme' : 'day-theme';
   const [codeSnippet, setCodeSnippet] = useState("");
   const [videoLink, setVideoLink] = useState("");
-
+  const [editorContent, setEditorContent] = useState("");
 
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
@@ -35,6 +35,7 @@ const AskQuestion = () => {
               questionBody,
               questionTags,
               codeSnippet,
+              editorContent,
               videoLink,
               userPosted: User.result.name,
             },
@@ -60,7 +61,9 @@ const AskQuestion = () => {
       setVideoLink(data.secure_url + "");
     }
   };
-
+  const handleContentChange = (content) => {
+    setEditorContent(content);
+  }
 
   const handleEnter = (e) => {
     if (e.key === "Enter") {
@@ -73,7 +76,7 @@ const AskQuestion = () => {
         <div className={`ask-ques-container ${themeClass}`}>
           <h1>Ask a public Question</h1>
 
-          {<RichTextEditor />}
+          {<RichTextEditor onContentChange={handleContentChange} />}
 
           <form onSubmit={handleSubmit}>
             <div className={`ask-form-container ${themeClass}`}>
