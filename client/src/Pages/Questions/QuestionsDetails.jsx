@@ -118,7 +118,7 @@ const QuestionsDetails = () => {
                       Code Snippet:
                       {/* <div style={{wordBreak:"break-word"}}> */}
                       {question.codeSnippet && (
-                        <div className="code-snippet" style={{color:"black}}>
+                        <div className="code-snippet" style={{color:"black"}}>
                           <code>{question.codeSnippet}</code>
                         </div>
                       )
