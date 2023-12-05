@@ -55,9 +55,9 @@ const Navbar = ({ handleSlideIn }) => {
           <Link to="/" className={`nav-item nav-btn res-nav ${themeClass}`}>
             For Teams
           </Link>
-          <form>
-            <input type="text" placeholder="Search..." style={{ borderRadius: "12px" }} />
-            <img src={search} alt="search" width="18" className={`search-icon`} />
+          <form >
+            <input type="text" placeholder="Search..." style={{ borderRadius: "12px", marginLeft: "-15px" }} />
+            <img src={search} alt="search" width="18" className={`search-icon`} style={{ marginLeft: "-15px" }} />
           </form>
         </div>
         <div className="navbar-2">
