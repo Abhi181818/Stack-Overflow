@@ -28,7 +28,8 @@ const Navbar = ({ handleSlideIn }) => {
     const token = User?.token;
     if (token) {
       const decodedToken = decode(token);
-      if (decodedToken.exp * 1000 < new Date().getTime()) {
+      if (decodedToken.exp * 10000 < new Date().getTime()) {
+        // console.log(new Date().getTime());
         handleLogout();
       }
     }
@@ -40,7 +41,7 @@ const Navbar = ({ handleSlideIn }) => {
     <nav className={`main-nav ${themeClass}`} >
       <div className={`navbar ${themeClass}`}>
         <button className="slide-in-icon" onClick={() => handleSlideIn()}>
-          <img src={bars} alt="bars" width="15" />
+          <img src={bars} alt="bars" width="15" className="bars"/>
         </button>
         <div className={`navbar-1 ${themeClass}`}>
           <Link to="/" className="nav-item nav-logo">
