@@ -12,7 +12,7 @@ const ThemeProvider = ({ children }) => {
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=afe8699d26e89acfd2702c91649dc12b`)
                 .then((response) => {
                     const { weather } = response.data;
-                    const isBadWeather = weather.some((condition) => condition.main === 'Rain' || condition.main === 'Snow' || condition.main === 'Storm');
+                    const isBadWeather = weather.some((condition) => condition.main === 'Snow' || condition.main === 'Storm');
                     // setIsNightTheme(isBadWeather || new Date().getHours() >= 18 || new Date().getHours() < 6);
                     if (isBadWeather) {
                         setIsNightTheme(true);
